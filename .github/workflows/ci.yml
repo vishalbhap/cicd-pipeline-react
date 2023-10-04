@@ -1,0 +1,34 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Docker login
+      env:
+        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      
+    - name: Build the Docker image
+      run: docker build -t cicd-pipeline-react .
+
+    - name: Check all docker images
+      run: docker image ls
+
+    - name: add tag name for pushing purpose
+      run: docker tag cicd-pipeline-react:latest vbhapkar77/cicd-pipeline-react:latest
+
+    - name: Check all docker images after tagging
+      run: docker image ls
+
+    - name: Push to Dockerhub
+      run: docker push vbhapkar77/cicd-pipeline-react:latest
