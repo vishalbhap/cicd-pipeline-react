@@ -26,7 +26,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Hi, I am Vishal Bhapkar.  Welcome to my website
+          Hi, I am Akshay Patil.  Welcome to my website
         </a>
       </header>
     </div>
