@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   const [count, setCount] = useState(0);
 
-  const incrementCount = () => {
+  const incrementCount = () => {-
     setCount(count + 1);
   };
 
@@ -26,7 +26,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Hi, I am Akshay Patil.  Welcome to my website
+          Hi, I am Yogesh Kore.  Welcome to my website
         </a>
       </header>
     </div>
